@@ -30,22 +30,22 @@ El proyecto implementa una arquitectura de microservicios containerizada:
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                    Docker Compose Orquestador                 │
+│                    Docker Compose Orquestador                │
 ├──────────────────────────────────────────────────────────────┤
-│                                                                │
+│                                                              │
 │  ┌──────────────────────┐      ┌──────────────────────────┐  │
 │  │   Bosques Riparios   │      │    Huella Humana         │  │
 │  │   (Dashboard BR)     │      │    (Dashboard HH)        │  │
 │  │   Puerto: 8001       │      │    Puerto: 8002          │  │
 │  └──────────────────────┘      └──────────────────────────┘  │
-│           │                              │                     │
-│           └──────────┬──────────────────┘                     │
-│                      │                                         │
+│           │                              │                   │
+│           └──────────┬──────────────────┘                    │
+│                      │                                       │
 │              ┌───────▼────────┐                              │
 │              │ Firebase Cloud │                              │
 │              │  (Auth, DB)    │                              │
 │              └────────────────┘                              │
-│                                                                │
+│                                                              │
 └──────────────────────────────────────────────────────────────┘
 ```
 
@@ -341,8 +341,8 @@ All dashboard and frontend code (Python/Shiny/React) is available at **https://g
 
 Para consultas técnicas y soporte:
 - Issues: Reportar en el repositorio de GitHub
-- Email: [contact@institution.edu]
-- Institución: [Nombre de la institución/laboratorio]
+- Email: [asalmeida4@espe.edu.ec]
+- Institución: [Universidad de las Fuerzas Armadas ESPE]
 
 ---
 
