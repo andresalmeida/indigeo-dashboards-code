@@ -341,8 +341,8 @@ All dashboard and frontend code (Python/Shiny/React) is available at **https://g
 
 For technical inquiries and support:
 - Issues: Report in GitHub repository
-- Email: [contact@institution.edu]
-- Institution: [Institution/Laboratory Name]
+- Email: [asalmeida4@espe.edu.ec]
+- Institution: [Universidad de las Fuerzas Armadas ESPE]
 
 ---
 
