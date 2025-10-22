@@ -324,7 +324,7 @@ This project is designed for scientific collaboration. Contributions should incl
 
 ## 10. Code Availability
 
-All dashboard and frontend code (Python/Shiny/React) is available at **https://github.com/USER/REPO** and archived at **https://doi.org/10.5281/**
+All dashboard and frontend code (Python/Shiny/React) is available at **https://github.com/andresalmeida/indigeo-dashboards-code.git** and archived at **https://doi.org/10.5281/**
 
 ---
 
