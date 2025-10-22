@@ -1,42 +1,42 @@
-# Dashboard de Indicadores Ambientales: Bosques Riparios y Huella Humana en Ecuador
+# Environmental Indicators Dashboard: Riparian Forests and Human Footprint in Ecuador
 
-## Resumen Ejecutivo
+## Executive Summary
 
-Este repositorio contiene los dashboards interactivos de análisis de dos indicadores ambientales críticos para el monitoreo ecológico en Ecuador: (1) **Bosques Riparios (BR)** y (2) **Huella Humana (HH)**. Ambas aplicaciones implementan tecnologías modernas de visualización de datos y computación en la nube, permitiendo la consulta, análisis e interpretación de datos geoespaciales mediante interfaces web responsivas.
-
----
-
-## 1. Introducción
-
-### 1.1 Contexto Ambiental
-
-Los bosques riparios constituyen ecosistemas críticos que actúan como amortiguadores hidrológicos y corredores biológicos. La Huella Humana, por su parte, es un indicador que cuantifica la intensidad del impacto antropogénico en los ecosistemas. Este proyecto proporciona herramientas de visualización y análisis para monitorear la evolución temporal y espacial de ambos indicadores en el territorio ecuatoriano.
-
-### 1.2 Propósito del Proyecto
-
-Facilitar el acceso a datos geoespaciales ambientales a través de dashboards interactivos que permitan:
-- Monitoreo continuo de indicadores de conservación
-- Análisis de tendencias temporales y distribución espacial
-- Toma de decisiones informadas en política ambiental
-- Divulgación científica y educación ambiental
+This repository contains interactive dashboards for analyzing two critical environmental indicators for ecological monitoring in Ecuador: (1) **Riparian Forests (BR)** and (2) **Human Footprint (HH)**. Both applications implement modern data visualization and cloud computing technologies, enabling querying, analysis, and interpretation of geospatial data through responsive web interfaces.
 
 ---
 
-## 2. Descripción Técnica
+## 1. Introduction
 
-### 2.1 Arquitectura del Sistema
+### 1.1 Environmental Context
 
-El proyecto implementa una arquitectura de microservicios containerizada:
+Riparian forests constitute critical ecosystems that act as hydrological buffers and biological corridors. The Human Footprint, meanwhile, is an indicator that quantifies the intensity of anthropogenic impact on ecosystems. This project provides visualization and analysis tools to monitor the temporal and spatial evolution of both indicators across Ecuadorian territory.
+
+### 1.2 Project Purpose
+
+To facilitate access to environmental geospatial data through interactive dashboards that enable:
+- Continuous monitoring of conservation indicators
+- Analysis of temporal trends and spatial distribution
+- Informed decision-making in environmental policy
+- Scientific dissemination and environmental education
+
+---
+
+## 2. Technical Description
+
+### 2.1 System Architecture
+
+The project implements a containerized microservices architecture:
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                    Docker Compose Orquestador                │
+│              Docker Compose Orchestrator                     │
 ├──────────────────────────────────────────────────────────────┤
 │                                                              │
 │  ┌──────────────────────┐      ┌──────────────────────────┐  │
-│  │   Bosques Riparios   │      │    Huella Humana         │  │
-│  │   (Dashboard BR)     │      │    (Dashboard HH)        │  │
-│  │   Puerto: 8001       │      │    Puerto: 8002          │  │
+│  │  Riparian Forests    │      │    Human Footprint       │  │
+│  │  (Dashboard BR)      │      │    (Dashboard HH)        │  │
+│  │   Port: 8001         │      │     Port: 8002           │  │
 │  └──────────────────────┘      └──────────────────────────┘  │
 │           │                              │                   │
 │           └──────────┬──────────────────┘                    │
@@ -49,65 +49,65 @@ El proyecto implementa una arquitectura de microservicios containerizada:
 └──────────────────────────────────────────────────────────────┘
 ```
 
-### 2.2 Stack Tecnológico
+### 2.2 Technology Stack
 
 #### Backend
-- **Python 3.13+**: Lenguaje de programación principal
-- **Shiny for Python**: Framework web reactivo para dashboards
-- **Pandas**: Procesamiento y manipulación de datos
-- **Plotly**: Visualización interactiva de datos
-- **ipyleaflet**: Mapas interactivos basados en Leaflet
+- **Python 3.13+**: Main programming language
+- **Shiny for Python**: Reactive web framework for dashboards
+- **Pandas**: Data processing and manipulation
+- **Plotly**: Interactive data visualization
+- **ipyleaflet**: Interactive maps based on Leaflet
 
 #### Frontend
-- **HTML5**: Interfaz web
-- **CSS3**: Diseño responsivo y animaciones
-- **Chart.js**: Gráficas estadísticas
-- **JavaScript (Vanilla)**: Interactividad del lado del cliente
+- **HTML5**: Web interface
+- **CSS3**: Responsive design and animations
+- **Chart.js**: Statistical graphics
+- **Vanilla JavaScript**: Client-side interactivity
 
-#### Infraestructura
-- **Docker & Docker Compose**: Containerización y orquestación
-- **Firebase Realtime Database**: Almacenamiento de datos
-- **Firebase Storage**: Gestión de archivos y CSV
-- **Firebase Authentication**: Control de acceso
+#### Infrastructure
+- **Docker & Docker Compose**: Containerization and orchestration
+- **Firebase Realtime Database**: Data storage
+- **Firebase Storage**: File and CSV management
+- **Firebase Authentication**: Access control
 
-### 2.3 Módulos Principales
+### 2.3 Main Modules
 
-#### 2.3.1 Dashboard de Bosques Riparios (`br/br.py`)
+#### 2.3.1 Riparian Forests Dashboard (`br/br.py`)
 
-**Funcionalidades:**
-- Carga de datos desde Firebase Storage (CSV compilado de estadísticas)
-- Análisis por buffers de 30m y 100m
-- Visualización temporal de tendencias (píxeles, proporciones, porcentajes)
-- Integración con mapas interactivos georreferenciados
-- Exportación de datos procesados
+**Features:**
+- Data loading from Firebase Storage (compiled statistics CSV)
+- Analysis at 30m and 100m buffer zones
+- Temporal visualization of trends (pixels, proportions, percentages)
+- Integration with georeferenced interactive maps
+- Processed data export
 
-**Datos procesados:**
-- `pixels_30m`: Número total de píxeles de riparios a 30m
-- `pixels_bosque_30m`: Píxeles de bosque ripario a 30m
-- `proporcion_30m`: Proporción de cobertura forestal a 30m
-- `pixels_100m`: Número total de píxeles de riparios a 100m
-- `pixels_bosque_100m`: Píxeles de bosque ripario a 100m
-- `proporcion_100m`: Proporción de cobertura forestal a 100m
+**Processed Data:**
+- `pixels_30m`: Total riparian pixels at 30m
+- `pixels_bosque_30m`: Riparian forest pixels at 30m
+- `proporcion_30m`: Forest coverage proportion at 30m
+- `pixels_100m`: Total riparian pixels at 100m
+- `pixels_bosque_100m`: Riparian forest pixels at 100m
+- `proporcion_100m`: Forest coverage proportion at 100m
 
-#### 2.3.2 Dashboard de Huella Humana (`hh/hh.py`)
+#### 2.3.2 Human Footprint Dashboard (`hh/hh.py`)
 
-**Funcionalidades:**
-- Carga de datos categorizados desde Firebase Storage
-- Clasificación por rangos de intensidad de impacto humano
-- Análisis temporal de cambios en categorías
-- Visualización cartográfica del impacto antropogénico
-- Interfaz interactiva con filtros dinámicos
+**Features:**
+- Loading categorized data from Firebase Storage
+- Classification by ranges of human impact intensity
+- Temporal analysis of category changes
+- Cartographic visualization of anthropogenic impact
+- Interactive interface with dynamic filters
 
-**Categorías de Huella Humana:**
-- Basadas en clasificación IUCN de intensidad de impacto
-- Análisis multi-temporal desde 1993-presente
+**Human Footprint Categories:**
+- Based on IUCN classification of impact intensity
+- Multi-temporal analysis from 1993-present
 
-### 2.4 Integración con Firebase
+### 2.4 Firebase Integration
 
-Ambas aplicaciones utilizan Firebase como backend de datos:
+Both applications use Firebase as the data backend:
 
 ```python
-# Ejemplo de configuración
+# Configuration example
 firebase_config = {
     "apiKey": os.getenv("FIREBASE_API_KEY"),
     "authDomain": os.getenv("FIREBASE_AUTH_DOMAIN"),
@@ -121,214 +121,214 @@ firebase_config = {
 
 ---
 
-## 3. Instalación y Configuración
+## 3. Installation and Configuration
 
-### 3.1 Requisitos Previos
+### 3.1 Prerequisites
 
-- Docker y Docker Compose (v3.8+)
-- Python 3.13+ (para desarrollo local sin Docker)
-- Variables de entorno Firebase configuradas
-- Acceso a los datasets en Firebase Storage
+- Docker and Docker Compose (v3.8+)
+- Python 3.13+ (for local development without Docker)
+- Firebase environment variables configured
+- Access to datasets in Firebase Storage
 
-### 3.2 Configuración del Entorno
+### 3.2 Environment Configuration
 
-Crear archivo `.env` en la raíz del proyecto:
+Create `.env` file in project root:
 
 ```bash
-FIREBASE_API_KEY=<tu_api_key>
-FIREBASE_AUTH_DOMAIN=<tu_auth_domain>
-FIREBASE_DATABASE_URL=<tu_database_url>
-FIREBASE_PROJECT_ID=<tu_project_id>
-FIREBASE_STORAGE_BUCKET=<tu_storage_bucket>
-FIREBASE_MESSAGING_SENDER_ID=<tu_messaging_sender_id>
-FIREBASE_APP_ID=<tu_app_id>
+FIREBASE_API_KEY=<your_api_key>
+FIREBASE_AUTH_DOMAIN=<your_auth_domain>
+FIREBASE_DATABASE_URL=<your_database_url>
+FIREBASE_PROJECT_ID=<your_project_id>
+FIREBASE_STORAGE_BUCKET=<your_storage_bucket>
+FIREBASE_MESSAGING_SENDER_ID=<your_messaging_sender_id>
+FIREBASE_APP_ID=<your_app_id>
 ```
 
-### 3.3 Despliegue con Docker Compose
+### 3.3 Deployment with Docker Compose
 
 ```bash
-# Construir imágenes
+# Build images
 docker-compose build
 
-# Iniciar servicios
+# Start services
 docker-compose up -d
 
-# Verificar estado
+# Check status
 docker-compose ps
 
-# Ver logs
-docker-compose logs -f bosques-riparios    # Dashboard BR (puerto 8001)
-docker-compose logs -f huella-humana       # Dashboard HH (puerto 8002)
+# View logs
+docker-compose logs -f bosques-riparios    # BR Dashboard (port 8001)
+docker-compose logs -f huella-humana       # HH Dashboard (port 8002)
 ```
 
-**URLs de acceso:**
-- Dashboard Bosques Riparios: `http://localhost:8001`
-- Dashboard Huella Humana: `http://localhost:8002`
-- Portal de integración: `http://localhost` (index.html)
+**Access URLs:**
+- Riparian Forests Dashboard: `http://localhost:8001`
+- Human Footprint Dashboard: `http://localhost:8002`
+- Integration Portal: `http://localhost` (index.html)
 
-### 3.4 Instalación Local (Desarrollo)
+### 3.4 Local Installation (Development)
 
 ```bash
-# Clonar repositorio
+# Clone repository
 git clone https://github.com/USER/REPO
 cd Indicadores
 
-# Crear entorno virtual
+# Create virtual environment
 python -m venv venv
-source venv/bin/activate  # En Windows: venv\Scripts\activate
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# Instalar dependencias
+# Install dependencies
 pip install -r requirements.txt
 
-# Ejecutar dashboard BR
+# Run BR dashboard
 cd br && python br.py
 
-# Ejecutar dashboard HH (en otra terminal)
+# Run HH dashboard (in another terminal)
 cd hh && python hh.py
 ```
 
 ---
 
-## 4. Estructura del Repositorio
+## 4. Repository Structure
 
 ```
 Indicadores/
-├── README.md                           # Este archivo
-├── docker-compose.yml                  # Configuración de servicios
-├── index.html                          # Portal de integración
-├── br/                                 # Dashboard Bosques Riparios
-│   ├── br.py                          # Aplicación principal
-│   ├── Dockerfile                      # Configuración de contenedor
+├── README.md                           # This file
+├── docker-compose.yml                  # Services configuration
+├── index.html                          # Integration portal
+├── br/                                 # Riparian Forests Dashboard
+│   ├── br.py                          # Main application
+│   ├── Dockerfile                      # Container configuration
 │   └── __pycache__/
-├── hh/                                 # Dashboard Huella Humana
-│   ├── hh.py                          # Aplicación principal
-│   ├── Dockerfile                      # Configuración de contenedor
+├── hh/                                 # Human Footprint Dashboard
+│   ├── hh.py                          # Main application
+│   ├── Dockerfile                      # Container configuration
 │   └── __pycache__/
 └── __pycache__/
 ```
 
 ---
 
-## 5. Metodología y Datasets
+## 5. Methodology and Datasets
 
-### 5.1 Datos de Bosques Riparios
+### 5.1 Riparian Forest Data
 
-**Fuente:** Procesamiento mediante análisis de detección remota
-**Resolución espacial:** 30m y 100m
-**Período:** Múltiples años (configurable)
-**Formato:** CSV compilado alojado en Firebase Storage
-**Ruta:** `MapasBosques/estadisticas_bosque_riparios_compiladas.csv`
+**Source:** Processing through remote sensing analysis
+**Spatial Resolution:** 30m and 100m
+**Period:** Multiple years (configurable)
+**Format:** Compiled CSV hosted in Firebase Storage
+**Path:** `MapasBosques/estadisticas_bosque_riparios_compiladas.csv`
 
-**Variables principales:**
-- Cobertura forestal en zonas riparias
-- Proporción de bosque ripario respecto a zona riparia total
-- Análisis comparativo entre buffers de protección
+**Main Variables:**
+- Forest coverage in riparian zones
+- Proportion of riparian forest relative to total riparian zone
+- Comparative analysis between protection buffers
 
-### 5.2 Datos de Huella Humana
+### 5.2 Human Footprint Data
 
-**Fuente:** Cálculo mediante índice de presión antropogénica
-**Resolución espacial:** Variable según análisis
-**Período:** 1993-presente
-**Formato:** CSV categorizado
-**Ruta:** `MapasPNG/HH_predeterminado.csv`
+**Source:** Calculation through anthropogenic pressure index
+**Spatial Resolution:** Variable according to analysis
+**Period:** 1993-present
+**Format:** Categorized CSV
+**Path:** `MapasPNG/HH_predeterminado.csv`
 
-**Clasificación:**
-- Categorías de intensidad de impacto (txt_rango)
-- Años de análisis (year)
-- Estadísticas de distribución espacial
-
----
-
-## 6. Características de Interfaz
-
-### 6.1 Diseño Responsivo
-
-Ambos dashboards implementan:
-- Paleta de colores: Lime (#C7F808) y Azul Oscuro (#1D2331)
-- Grid layout responsivo
-- Fuentes personalizadas: Oswald y Poppins
-- Animaciones suaves y transiciones CSS3
-
-### 6.2 Componentes Interactivos
-
-- **Selectores de período:** Filtrado temporal de datos
-- **Mapas interactivos:** Visualización geoespacial con zoom y panning
-- **Gráficos dinámicos:** Charting reactivo con Plotly
-- **Paneles de control:** Configuración de parámetros en tiempo real
-- **Descargas:** Exportación de datos procesados
+**Classification:**
+- Impact intensity categories (txt_rango)
+- Years of analysis (year)
+- Spatial distribution statistics
 
 ---
 
-## 7. API y Endpoints
+## 6. Interface Features
 
-### 7.1 Configuración de Puertos
+### 6.1 Responsive Design
 
-| Servicio | Puerto Interno | Puerto Externo | Protocolo |
-|----------|----------------|----------------|-----------|
-| Bosques Riparios | 8000 | 8001 | HTTP |
-| Huella Humana | 8000 | 8002 | HTTP |
+Both dashboards implement:
+- Color palette: Lime (#C7F808) and Dark Blue (#1D2331)
+- Responsive grid layout
+- Custom fonts: Oswald and Poppins
+- Smooth animations and CSS3 transitions
 
-### 7.2 Variables de Entorno
+### 6.2 Interactive Components
 
-Todos los servicios comparten configuración de Firebase mediante:
-- `PYTHONUNBUFFERED=1`: Streaming de logs
-- `FIREBASE_*`: Credenciales de autenticación y bases de datos
+- **Period Selectors:** Temporal data filtering
+- **Interactive Maps:** Geospatial visualization with zoom and panning
+- **Dynamic Graphs:** Reactive charting with Plotly
+- **Control Panels:** Real-time parameter configuration
+- **Downloads:** Processed data export
 
 ---
 
-## 8. Mantenimiento y Actualizaciones
+## 7. API and Endpoints
 
-### 8.1 Actualización de Datos
+### 7.1 Port Configuration
 
-Los datos se obtienen directamente desde Firebase Storage. Para actualizar:
+| Service | Internal Port | External Port | Protocol |
+|---------|---------------|---------------|----------|
+| Riparian Forests | 8000 | 8001 | HTTP |
+| Human Footprint | 8000 | 8002 | HTTP |
 
-1. Subir nuevos CSV a las rutas correspondientes en Firebase Storage
-2. Las aplicaciones cargarán automáticamente los datos en el siguiente acceso
+### 7.2 Environment Variables
 
-### 8.2 Monitoreo
+All services share Firebase configuration through:
+- `PYTHONUNBUFFERED=1`: Log streaming
+- `FIREBASE_*`: Authentication and database credentials
+
+---
+
+## 8. Maintenance and Updates
+
+### 8.1 Data Updates
+
+Data is obtained directly from Firebase Storage. To update:
+
+1. Upload new CSVs to corresponding paths in Firebase Storage
+2. Applications will automatically load the data on next access
+
+### 8.2 Monitoring
 
 ```bash
-# Verificar salud de servicios
+# Check service health
 docker-compose ps
 
-# Limpiar recursos
+# Clean resources
 docker-compose down -v
 
-# Reconstruir sin caché
+# Rebuild without cache
 docker-compose build --no-cache
 ```
 
 ### 8.3 Troubleshooting
 
-**Problema:** Error de conexión a Firebase
-- **Solución:** Verificar variables de entorno en `.env`
+**Issue:** Firebase connection error
+- **Solution:** Verify environment variables in `.env`
 
-**Problema:** Puerto ya en uso
-- **Solución:** Modificar puertos en `docker-compose.yml`
+**Issue:** Port already in use
+- **Solution:** Modify ports in `docker-compose.yml`
 
-**Problema:** Datos no se cargan
-- **Solución:** Verificar rutas en Firebase Storage y permisos de acceso
-
----
-
-## 9. Contribuciones y Licencia
-
-Este proyecto está diseñado para colaboración científica. Las contribuciones deben incluir:
-- Documentación de cambios
-- Pruebas de funcionalidad
-- Actualización de documentación relevante
-
-**Licencia:** Verificar LICENSE.md para detalles específicos
+**Issue:** Data not loading
+- **Solution:** Verify paths in Firebase Storage and access permissions
 
 ---
 
-## 10. Disponibilidad de Código
+## 9. Contributions and License
+
+This project is designed for scientific collaboration. Contributions should include:
+- Documentation of changes
+- Functionality tests
+- Update of relevant documentation
+
+**License:** See LICENSE.md for specific details
+
+---
+
+## 10. Code Availability
 
 All dashboard and frontend code (Python/Shiny/React) is available at **https://github.com/USER/REPO** and archived at **https://doi.org/10.5281/**
 
 ---
 
-## 11. Referencias Bibliográficas
+## 11. Bibliographic References
 
 - Shiny for Python Documentation. (https://shiny.posit.co/py/)
 - Plotly Python Documentation. (https://plotly.com/python/)
@@ -337,24 +337,24 @@ All dashboard and frontend code (Python/Shiny/React) is available at **https://g
 
 ---
 
-## 12. Contacto y Soporte
+## 12. Contact and Support
 
-Para consultas técnicas y soporte:
-- Issues: Reportar en el repositorio de GitHub
-- Email: [asalmeida4@espe.edu.ec]
-- Institución: [Universidad de las Fuerzas Armadas ESPE]
-
----
-
-**Fecha de última actualización:** Octubre 2025  
-**Versión del documento:** 1.0  
-**Versión de código:** 1.0.0
+For technical inquiries and support:
+- Issues: Report in GitHub repository
+- Email: [contact@institution.edu]
+- Institution: [Institution/Laboratory Name]
 
 ---
 
-## Apéndice: Dependencias de Python
+**Last Update:** October 2025  
+**Document Version:** 1.0  
+**Code Version:** 1.0.0
 
-### Dependencias Principales
+---
+
+## Appendix: Python Dependencies
+
+### Main Dependencies
 
 ```
 python==3.13
@@ -367,10 +367,10 @@ shinywidgets>=0.3.0
 faicons>=0.4.0
 requests>=2.31.0
 python-dotenv>=1.0.0
-firebase-admin>=6.0.0 (opcional)
+firebase-admin>=6.0.0 (optional)
 ```
 
-### Instalación de Dependencias
+### Installation of Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -378,4 +378,4 @@ pip install -r requirements.txt
 
 ---
 
-*Este README ha sido preparado para cumplir con los estándares de publicación en repositorios de SNL EMAS, asegurando reproducibilidad, trazabilidad y accesibilidad de la investigación.*
+*This README has been prepared to meet the publishing standards for SNL EMAS repositories, ensuring reproducibility, traceability, and accessibility of the research.*
